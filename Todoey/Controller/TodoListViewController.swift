@@ -69,7 +69,9 @@ class TodoListViewController: UITableViewController {
         
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
            
-            let newItem = ItemArray()
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            
+            let newItem = Item(context: context)
             
             newItem.title = textField.text!
             
